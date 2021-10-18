@@ -23,7 +23,7 @@ spec:
             imagePullPolicy: Always
             ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
             volumeMounts:
             - name: data
               mountPath: /mnt/nfs
@@ -40,7 +40,7 @@ spec:
     type: NodePort
     ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: 80
     selector:
         app: nginx
