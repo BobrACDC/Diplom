@@ -1,7 +1,0 @@
-Example: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
-
-1. kubectl apply -f app.yaml
-2. kubectl get services
-3. kubectl port-forward svc/mynginx 80:80
-4. load the page http://localhost/test.html
-
