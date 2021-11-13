@@ -1,0 +1,26 @@
+# alertmanager configuration
+alertmanager:
+  # global route configuration
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      group_by: ['job']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 24h
+      receiver: 'default'
+      routes:
+      - match:
+          alertname: Watchdog
+        receiver: 'null'
+    receivers:
+      - name: 'gmail-notifications'
+        email_configs:
+          - to: user@gmail.com
+            from: user@gmail.com
+            smarthost: smtp.gmail.com:587
+            auth_username: user@gmail.com
+            auth_identity: user@gmail.com
+            auth_password: mypassword
+            send_resolved: true
